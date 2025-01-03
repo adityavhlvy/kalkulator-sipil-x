@@ -1,3 +1,17 @@
+type Result = {
+    monthYear: string;
+    u10: number;
+    tf: number;
+    c: number;
+    u3600: number;
+    Rl: number;
+    uw: number;
+    uc: number;
+    ua: number;
+    H: number;
+    Tm: number;
+};
+
 const convertToCSV = (data: Result[]) => {
     const header = [
         "Month-Year", "u10", "tf", "c", "u3600", "Rl", "uw", "uc", "ua", "H", "Tm"
