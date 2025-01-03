@@ -12,10 +12,18 @@ import {
 
 const LineChart = ({ data }: { data: number[] }) => {
     // Format data untuk menampilkan bulan-tahun di sumbu X
-    const formattedData = data.map((entry) => ({
-        ...entry,
-        month: `${entry.month.toString().padStart(2, '0')}-${entry.year}`,
-    }));
+    const formattedData = data.map((entry) => {
+        if (typeof entry === 'object' && entry !== null) {
+            return {
+                ...entry,
+                month: `${entry.month.toString().padStart(2, '0')}-${entry.year}`,
+            };
+        } else {
+            // Handle non-object cases or return a default structure
+            return { month: 'Invalid Data', year: 0 };
+        }
+    });
+
 
     return (
         <div className="mt-6">
