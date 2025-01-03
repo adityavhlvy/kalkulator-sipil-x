@@ -1,7 +1,4 @@
-import React from 'react';
-
-// Fungsi untuk mengonversi data ke format CSV
-const convertToCSV = (data: any[]) => {
+const convertToCSV = (data: Result[]) => {
     const header = [
         "Month-Year", "u10", "tf", "c", "u3600", "Rl", "uw", "uc", "ua", "H", "Tm"
     ];
@@ -19,13 +16,11 @@ const convertToCSV = (data: any[]) => {
         row.Tm
     ]);
 
-    // Gabungkan header dan rows
     const csvContent = [header, ...rows].map(e => e.join(",")).join("\n");
     return csvContent;
 };
 
-// Fungsi untuk memulai unduhan CSV
-const downloadCSV = (data: any[]) => {
+const downloadCSV = (data: Result[]) => {
     const csvContent = convertToCSV(data);
     const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
     const link = document.createElement("a");
@@ -37,9 +32,8 @@ const downloadCSV = (data: any[]) => {
     }
 };
 
-const CalculationTable = ({ results }: { results: any[] }) => (
+const CalculationTable = ({ results }: { results: Result[] }) => (
     <div>
-        {/* Tombol untuk mengunduh CSV */}
         <button
             onClick={() => downloadCSV(results)}
             className="bg-blue-500 text-white px-4 py-2 rounded mb-4"
@@ -85,5 +79,3 @@ const CalculationTable = ({ results }: { results: any[] }) => (
         </table>
     </div>
 );
-
-export default CalculationTable;
