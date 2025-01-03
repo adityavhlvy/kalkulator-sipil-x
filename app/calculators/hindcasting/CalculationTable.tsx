@@ -2,15 +2,15 @@ type Result = {
     year: number;
     month: number;
     u10: number;
-    tf: number;
-    c: number;
-    u3600: number;
-    Rl: number;
-    uw: number;
-    uc: number;
-    ua: number;
-    H: number;
-    Tm: number;
+    tf: string;
+    c: string;
+    u3600: string;
+    Rl: string;
+    uw: string;
+    uc: string;
+    ua: string;
+    H: string;
+    Tm: string;
 };
 
 const convertToCSV = (data: Result[]) => {
@@ -18,7 +18,7 @@ const convertToCSV = (data: Result[]) => {
         "Month-Year", "u10", "tf", "c", "u3600", "Rl", "uw", "uc", "ua", "H", "Tm"
     ];
     const rows = data.map(row => [
-        `${row.month.toString().padStart(2, '0')}-${row.year}`,
+        `${String(row.month).padStart(2, '0')}-${row.year}`,
         row.u10,
         row.tf,
         row.c,
@@ -75,9 +75,7 @@ const CalculationTable = ({ results }: { results: Result[] }) => (
             <tbody>
                 {results.map((row, index) => (
                     <tr key={index}>
-                        <td className="border border-gray-300 px-4 py-2">
-                            {`${row.month.toString().padStart(2, '0')}-${row.year}`}
-                        </td>
+                        <td className="border border-gray-300 px-4 py-2">{`${String(row.month).padStart(2, '0')}-${row.year}`}</td>
                         <td className="border border-gray-300 px-4 py-2">{row.u10}</td>
                         <td className="border border-gray-300 px-4 py-2">{row.tf}</td>
                         <td className="border border-gray-300 px-4 py-2">{row.c}</td>

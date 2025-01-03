@@ -1,5 +1,5 @@
-export const CalculateFase1 = (data: number[], feff: number) => {
-    if (!Array.isArray(data) || data.length === 0) {
+export const CalculateFase1 = (data: any[], feff: number) => {
+    if (data.length === 0) {
         throw new Error("Data input tidak valid atau kosong.");
     }
 
@@ -7,15 +7,15 @@ export const CalculateFase1 = (data: number[], feff: number) => {
         throw new Error("Nilai Feff harus lebih besar dari 0.");
     }
 
-    return data.map((row, index) => {
+    return data.map((row) => {
         const { year, month, u10 } = row;
 
         if (typeof u10 !== "number" || u10 <= 0) {
-            console.warn(`Data u10 tidak valid pada baris ${index + 1}:`, row);
+            console.warn(`Data u10 tidak valid pada baris ${year}-${month}:`, row);
             return { ...row, error: "u10 tidak valid" };
         }
 
-        // Fase 1
+        // Fase 1 calculations
         const tf = 1609 / u10;
         const c = tf < 3600
             ? 1.277 + (0.296 * Math.tanh(0.9 * Math.log(45 / tf)))

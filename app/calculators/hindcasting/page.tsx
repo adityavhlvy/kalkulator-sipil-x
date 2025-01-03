@@ -8,12 +8,12 @@ import LineChart from '@/app/calculators/hindcasting/LineChart';
 import { CalculateFase1 } from '@/app/calculators/hindcasting/utils/CalculateFase1';
 
 const HindcastingPage = () => {
-    const [data, setData] = useState(null); // Data hasil upload CSV
+    const [data, setData] = useState<any[]>([]); // Data hasil upload CSV
     const [feff, setFeff] = useState<number | null>(null); // Nilai Feff dari pengguna
-    const [results, setResults] = useState(null); // Hasil perhitungan
+    const [results, setResults] = useState<any[]>([]); // Hasil perhitungan
 
     const handleCalculate = () => {
-        if (data && feff) {
+        if (data.length > 0 && feff !== null) {
             const calculationResults = CalculateFase1(data, feff);
             setResults(calculationResults);
         }
@@ -27,11 +27,11 @@ const HindcastingPage = () => {
             <button
                 className="mt-4 bg-blue-500 text-white px-4 py-2 rounded"
                 onClick={handleCalculate}
-                disabled={!data || feff === null}
+                disabled={data.length === 0 || feff === null}
             >
                 Hitung
             </button>
-            {results && (
+            {results.length > 0 && (
                 <>
                     <CalculationTable results={results} />
                     <LineChart data={results} />
