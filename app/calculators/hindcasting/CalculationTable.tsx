@@ -79,3 +79,5 @@ const CalculationTable = ({ results }: { results: Result[] }) => (
         </table>
     </div>
 );
+
+export default CalculationTable;
