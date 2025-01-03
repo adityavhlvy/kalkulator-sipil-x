@@ -1,5 +1,6 @@
 type Result = {
-    monthYear: string;
+    year: number;
+    month: number;
     u10: number;
     tf: number;
     c: number;
