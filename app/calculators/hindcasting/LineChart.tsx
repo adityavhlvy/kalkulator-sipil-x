@@ -10,7 +10,7 @@ import {
     ResponsiveContainer,
 } from 'recharts';
 
-const LineChart = ({ data }: { data: any[] }) => {
+const LineChart = ({ data }: { data: number[] }) => {
     // Format data untuk menampilkan bulan-tahun di sumbu X
     const formattedData = data.map((entry) => ({
         ...entry,

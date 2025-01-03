@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UploadFile = ({ setData }: { setData: (data: any) => void }) => {
+const UploadFile = ({ setData }: { setData: (data: number) => void }) => {
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files?.[0]) {
       const file = e.target.files[0];

@@ -1,4 +1,4 @@
-export const CalculateFase1 = (data: any[], feff: number) => {
+export const CalculateFase1 = (data: number[], feff: number) => {
     if (!Array.isArray(data) || data.length === 0) {
         throw new Error("Data input tidak valid atau kosong.");
     }
