@@ -6,19 +6,19 @@ export default function Kalkulator3() {
     // Data untuk setiap kalkulator
     const calculators = [
         {
-            href: "kalkulator-3-3/kalkulator-3-3-1",
+            href: "kalkulator-3/kalkulator-3-1",
             imageSrc: imageExample.src,
             title: "Kalkulator 3-1",
             description: "Penjelasan singkat tentang kalkulator 3-3-1.",
         },
         {
-            href: "kalkulator-3-3/kalkulator-3-3-2",
+            href: "kalkulator-3/kalkulator-3-2",
             imageSrc: imageExample.src,
             title: "Kalkulator 3-2",
             description: "Penjelasan singkat tentang kalkulator 3-3-2.",
         },
         {
-            href: "kalkulator-3-3/kalkulator-3-3-3",
+            href: "kalkulator-3/kalkulator-3-3",
             imageSrc: imageExample.src,
             title: "Kalkulator 3-3",
             description: "Penjelasan singkat tentang kalkulator 3-3-3.",
